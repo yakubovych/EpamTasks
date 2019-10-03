@@ -26,6 +26,7 @@
                     "(clear)  Clear console.\n");
 
                 Console.WriteLine("What action do you choose?");
+				
                 string index = Console.ReadLine();
 
                 switch (index)
