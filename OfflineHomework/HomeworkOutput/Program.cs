@@ -8,14 +8,58 @@
 
     class Program
     {
+        public static bool CheckTasks;
         static void Main(string[] args)
         {
-            Task1();
-            Task2();
-            Task3();
-            Task4();
-            Task5();
-            Console.ReadKey();
+            Console.WriteLine("-----Offline part tasks-----");
+
+            while (!CheckTasks)
+            {
+                Console.WriteLine("Select an action: \n" +
+                    "(1)  Check first task;\n" +
+                    "(2)  Check second task;\n" +
+                    "(3)  Check third task;\n" +
+                    "(4)  Check fourth task;\n" +
+                    "(5)  Check fifth task;\n" +
+                    "(0)  Exit;\n" +
+                    "(clear)  Clear console.\n");
+
+                Console.WriteLine("What action do you choose?");
+                string index = Console.ReadLine();
+
+                switch (index)
+                {
+                    case "1":
+                        Console.Clear();
+                        Task1();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Task2();
+                        break;
+                    case "3":
+                        Console.Clear();
+                        Task3();
+                        break;
+                    case "4":
+                        Console.Clear();
+                        Task4();
+                        break;
+                    case "5":
+                        Console.Clear();
+                        Task5();
+                        break;
+                    case "0":
+                        CheckTasks = true;
+                        break;
+                    case "clear":
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.WriteLine("Input error!");
+                        break;
+                }
+            }
         }
 
         public static bool Task1()
