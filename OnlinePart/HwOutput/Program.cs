@@ -10,20 +10,53 @@
     {
         public static object ConverToInt32 { get; private set; }
 
+        public static bool CheckTasks;
+
         static void Main(string[] args)
         {
-            Hw1();
-            Hw2();
-            Hw3();
-            Console.ReadKey();
+            Console.WriteLine("-----Online part tasks-----");
+
+            while (!CheckTasks)
+            {
+                Console.WriteLine("Select an action: \n" +
+                    "(1)  Check first homework;\n" +
+                    "(2)  Check second homework;\n" +
+                    "(3)  Check third homework;\n" +
+                    "(0)  Exit;\n" +
+                    "(clear)  Clear console.\n");
+
+                Console.WriteLine("What action do you choose?");
+                string index = Console.ReadLine();
+
+                switch (index)
+                {
+                    case "1":
+                        Console.Clear();
+                        Hw1();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Hw2();
+                        break;
+                    case "3":
+                        Console.Clear();
+                        Hw3();
+                        break;
+                    case "0":
+                        CheckTasks = true;
+                        break;
+                    case "clear":
+                        Console.Clear();
+                        break;
+                    default:
+                        Console.WriteLine("Input error!");
+                        break;
+                }
+            }
         }
 
         public static void Hw1()
         {
-            /*
-             Task 1
-            */
-
             Console.WriteLine("\n----- HomeWork 1 -----");
             Console.WriteLine("\n--- Task1 Rectangle ---");
 
@@ -43,19 +76,11 @@
 
             Console.WriteLine("Square: {0}; Perimeter: {1};", rect1.Square(), rect1.Perimetеr());
 
-            /*
-             Task 2
-            */
-
             Console.WriteLine("\n--- Task2 Rectangle ---");
 
             HW1.RectangleTask2 rect2 = new HW1.RectangleTask2(LeftY, LeftX, RightY, RightX);
 
             Console.WriteLine("Square: {0}; Perimeter: {1};", rect2.Square, rect2.Perimetеr);
-
-            /*
-             Task 3
-            */
 
             Console.WriteLine("\n--- Task3 Circle ---");
             Console.Write("Radius: ");
@@ -64,10 +89,6 @@
             HW1.CircleTask3 circ = new HW1.CircleTask3();
 
             Console.WriteLine("Length: {0}; Square: {1}", circ.Length(radius3), circ.Square(radius3));
-
-            /*
-             Task 4
-            */
 
             Console.WriteLine("--- Task4 Rectangle ---");
             Console.Write("LeftY: ");
@@ -89,10 +110,6 @@
             double radius4 = Convert.ToDouble(Console.ReadLine());
 
             Console.WriteLine("Length: {0}; Square: {1};", HW1.CircleTask4.Length(radius4), HW1.CircleTask4.Square(radius4));
-
-            /*
-             Task 5
-            */
 
             Console.WriteLine("--- Task5 Complex Number ---");
 
@@ -128,10 +145,6 @@
 
         private static void Hw2()
         {
-            /*
-             Task 1
-            */
-
             Console.WriteLine("\n----- HomeWork 2 -----");
             Console.WriteLine("\n--- Task1 ---");
 
@@ -142,10 +155,6 @@
             s.Draw();
             Console.WriteLine();
 
-            /*
-             Task 2
-            */
-
             Console.WriteLine("\n--- Task2 ---");
 
             HW2.RectangleTask2 r2 = new HW2.RectangleTask2(x: 5, y: 3);
@@ -154,10 +163,6 @@
             HW2.SquareTask2 s2 = new HW2.SquareTask2(x: 5, y: 3);
             s2.Draw();
             Console.WriteLine();
-
-            /*
-             Task 3
-            */
 
             Console.WriteLine("\n--- Task3 ---");
 
@@ -171,10 +176,6 @@
             s3.Draw();
             Console.WriteLine();
 
-            /*
-             Task 4
-            */
-
             Console.WriteLine("\n--- Task4 ---");
             HW2.RectangleTask4 r4 = new HW2.RectangleTask4(x: 5, y: 3);
             HW2.SquareTask4 s4 = new HW2.SquareTask4(x: 5, y: 3);
@@ -185,19 +186,11 @@
         public static void Hw3()
         {
 
-            /*
-             Task 1
-            */
-
             Console.WriteLine("\n----- HomeWork 3 -----");
             Console.WriteLine("\n--- Task1 ---");
             HW3.Task1 task1 = new HW3.Task1();
             task1.RandomList();
             task1.OutputList();
-
-            /*
-             Task 2
-            */
 
             Console.WriteLine("\n--- Task2 ---");
             List<HW3.Person> people = new List<HW3.Person>();
@@ -230,10 +223,6 @@
 
             task2.NewPeople(people);
             task2.OutputList();
-
-            /*
-             Task 3
-            */
 
             HW3.Task3 task3 = new HW3.Task3();
             Console.Clear();
