@@ -4,11 +4,13 @@
     using Task1 = OfflineHomework.FirstTraining.Task1;
     using Task2 = OfflineHomework.FirstTraining.Task2;
     using Task3 = OfflineHomework.FirstTraining.Task3;
+    using Task4 = OfflineHomework.FirstTraining.Task4;
     using Task5 = OfflineHomework.FirstTraining.Task5;
 
     class Program
     {
         public static bool CheckTasks;
+
         static void Main(string[] args)
         {
             Console.WriteLine("-----Offline part tasks-----");
@@ -127,7 +129,11 @@
         public static void Task4()
         {
             Console.WriteLine("--- Task4 ---");
-            OfflineHomework.FirstTraining.Task4.Extension.SortEnum();
+            foreach (var i in Enum.GetValues(typeof(Task4.Colors)))
+            {
+                Console.WriteLine($"{i} = {(int)i}");
+            }
+
             Console.WriteLine("----------------------------");
         }
 
