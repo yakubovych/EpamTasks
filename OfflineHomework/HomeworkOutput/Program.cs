@@ -74,6 +74,7 @@
             string surname = Console.ReadLine();
             Console.Write("Enter your age: ");
             int age = Convert.ToInt32(Console.ReadLine());
+
             if (String.IsNullOrEmpty(name) && name.Length > 1)
             {
                 Console.WriteLine("Incorrect input!");
