@@ -1,61 +1,36 @@
 ﻿namespace HomeworkOutput
 {
     using System;
-    using Task1 = OfflineHomework.FirstTraining.Task1;
-    using Task2 = OfflineHomework.FirstTraining.Task2;
-    using Task3 = OfflineHomework.FirstTraining.Task3;
-    using Task4 = OfflineHomework.FirstTraining.Task4;
-    using Task5 = OfflineHomework.FirstTraining.Task5;
 
     class Program
     {
-        public static bool CheckTasks;
+        public static bool CheckHomework;
+        public static bool CheckTasksFirst;
+        public static bool CheckTasksSecond;
 
         static void Main(string[] args)
         {
-            Console.WriteLine("-----Offline part tasks-----");
-
-            while (!CheckTasks)
+            while (!CheckTasksFirst)
             {
-                Console.WriteLine("Select an action: \n" +
-                    "(1)  Check first task;\n" +
-                    "(2)  Check second task;\n" +
-                    "(3)  Check third task;\n" +
-                    "(4)  Check fourth task;\n" +
-                    "(5)  Check fifth task;\n" +
-                    "(0)  Exit;\n" +
-                    "(clear)  Clear console.\n");
-
+                Console.WriteLine("-----Offline part tasks-----");
+                Console.WriteLine(
+                    "Select homework: \n" +
+                    "(1) Check first task;\n" +
+                    "(2) Check second homework;\n" +
+                    "(0)  Exit.\n");
                 Console.WriteLine("What action do you choose?");
-                string index = Console.ReadLine();
-
-                switch (index)
+                string number = Console.ReadLine();
+                Console.Clear();
+                switch (number)
                 {
                     case "1":
-                        Console.Clear();
-                        Task1();
+                        FirstHomework();
                         break;
                     case "2":
-                        Console.Clear();
-                        Task2();
-                        break;
-                    case "3":
-                        Console.Clear();
-                        Task3();
-                        break;
-                    case "4":
-                        Console.Clear();
-                        Task4();
-                        break;
-                    case "5":
-                        Console.Clear();
-                        Task5();
+                        SecondHomework();
                         break;
                     case "0":
-                        CheckTasks = true;
-                        break;
-                    case "clear":
-                        Console.Clear();
+                        CheckTasksFirst = true;
                         break;
                     default:
                         Console.WriteLine("Input error!");
@@ -64,86 +39,99 @@
             }
         }
 
-        public static bool Task1()
+        public static void FirstHomework()
         {
-            Console.WriteLine("\n----- HomeWork 1 -----");
-            Console.WriteLine("\n--- Task1 ---");
-            Console.Write("Enter your name: ");
-            string name = Console.ReadLine();
-            Console.Write("Enter your surname: ");
-            string surname = Console.ReadLine();
-            Console.Write("Enter your age: ");
-            int age = Convert.ToInt32(Console.ReadLine());
-
-            if (String.IsNullOrEmpty(name) && name.Length > 1)
+            Console.WriteLine("---First Homework---");
+            while (!CheckTasksFirst)
             {
-                Console.WriteLine("Incorrect input!");
-            }
+                Console.WriteLine(
+                    "Select an action: \n" +
+                    "(1)  Check first task;\n" +
+                    "(2)  Check second task;\n" +
+                    "(3)  Check third task;\n" +
+                    "(4)  Check fourth task;\n" +
+                    "(5)  Check fifth task;\n" +
+                    "(second) Check second homework;\n" +
+                    "(0)  Exit.\n");
 
-            if (String.IsNullOrEmpty(surname) && surname.Length > 1)
-            {
-                Console.WriteLine("Incorrect input!");
+                Console.WriteLine("What action do you choose?");
+                string number = Console.ReadLine();
+                Console.Clear();
+                switch (number)
+                {
+                    case "1":
+                        FirstTrain.Task1();
+                        break;
+                    case "2":
+                        FirstTrain.Task2();
+                        break;
+                    case "3":
+                        FirstTrain.Task3();
+                        break;
+                    case "4":
+                        FirstTrain.Task4();
+                        break;
+                    case "5":
+                        FirstTrain.Task5();
+                        break;
+                    case "0":
+                        CheckTasksFirst = true;
+                        break;
+                    case "second":
+                        SecondHomework();
+                        break;
+                    default:
+                        Console.WriteLine("Input error!");
+                        break;
+                }
             }
-
-            if (age <= 1 || age >= 100)
-            {
-                Console.WriteLine("Incorrect input");
-            }
-
-            Task1.Person person = new Task1.Person(name, surname, age);
-            Console.Write("Enter number to compare: ");
-            int n = Convert.ToInt32(Console.ReadLine());
-            person.CompareAgeWithInput(n);
-            Console.WriteLine("----------------------------");
-            return true;
         }
 
-        public static void Task2()
+        public static void SecondHomework()
         {
-            Console.WriteLine("--- Task2 ---");
-            Console.Write("Enter width of rectangle: ");
-            double width = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter height of rectangle: ");
-            double height = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter X coordinate of rectangle: ");
-            double x = Convert.ToDouble(Console.ReadLine());
-            Console.Write("Enter Y coordinate of rectangle: ");
-            double y = Convert.ToDouble(Console.ReadLine());
-            Task2.Rectangle rectangle = new Task2.Rectangle { Width = width, Height = height, X = x, Y = y };
-            Console.WriteLine($"Perimeter of rectangle = {rectangle.Perimeter()}");
-            Console.WriteLine("----------------------------");
-        }
-
-        public static void Task3()
-        {
-            Console.WriteLine("--- Task3 ---");
-            Console.Write("Input number of month: ");
-            int n = Convert.ToInt32(Console.ReadLine());
-            if (n < 1 || n > 12)
+            Console.WriteLine("---Second Homework---");
+            while (!CheckTasksSecond)
             {
-                Console.WriteLine("Incorrect input!");
-            }
-            Console.WriteLine($"{(Task3.Month)n}");
-            Console.WriteLine("----------------------------");
-        }
+                Console.WriteLine(
+                    "Select an action: \n" +
+                    "(1)  Check first task;\n" +
+                    "(2)  Check second task;\n" +
+                    "(3)  Check third task;\n" +
+                    "(4)  Check fourth task;\n" +
+                    "(5)  Check fifth task;\n" +
+                    "(first) Check first homework;\n" +
+                    "(0)  Exit.\n");
 
-        public static void Task4()
-        {
-            Console.WriteLine("--- Task4 ---");
-            foreach (var i in Enum.GetValues(typeof(Task4.Colors)))
-            {
-                Console.WriteLine($"{i} = {(int)i}");
-            }
-
-            Console.WriteLine("----------------------------");
-        }
-
-        public static void Task5()
-        {
-            Console.WriteLine("--- Task5 ---");
-            foreach (var i in Enum.GetValues(typeof(Task5.LongRange)))
-            {
-                Console.WriteLine($"{i} = {(long)i}");
+                Console.WriteLine("What action do you choose?");
+                string number = Console.ReadLine();
+                Console.Clear();
+                switch (number)
+                {
+                    case "1":
+                        SecondTrain.Task1();
+                        break;
+                    case "2":
+                        SecondTrain.Task2();
+                        break;
+                    case "3":
+                        SecondTrain.Task3();
+                        break;
+                    case "4":
+                        SecondTrain.Task4();
+                        break;
+                    case "5":
+                        SecondTrain.Task5();
+                        break;
+                    case "0":
+                        CheckTasksSecond = true;
+                        break;
+                    case "first":
+                        FirstHomework();
+                        break;
+                    default:
+                        Console.WriteLine("Input error!");
+                        break;
+                }
             }
         }
     }
